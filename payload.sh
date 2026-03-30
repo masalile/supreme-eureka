@@ -6,7 +6,7 @@ if uname -r | grep arch > /dev/null; then
 	echo "Hello, $USER!"
 	echo "Before I continue, we need to update your system"
 	echo "Update now? [say 'yes' (case sensitive) to continue, anything else is automatically interpreted as no]"
-	read -p "Answer = "
+	read -u 1 -p "Answer = "
 
 	if [ "is $REPLY" = "is yes" ]; then
 		sudo pacman -Syu
@@ -33,7 +33,7 @@ if uname -r | grep arch > /dev/null; then
 		echo "1) What you use to eat spaghetti"
 		echo "2) What happens when two planes collide"
 		wtf () {
-			read -n 1 -p "Answer (1/2) = "
+			read -n 1 -u -p "Answer (1/2) = "
 			case $REPLY in
 				1)
 					yes "GET F0RKBOMBED!!!" &
